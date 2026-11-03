@@ -4,13 +4,14 @@
 class Tetromino
 {
 public:
-    Tetromino(PieceTypes::PieceType type);
+    explicit Tetromino(PieceTypes::PieceType type);
     void MoveRight();
     void MoveLeft();
     void MoveDown();
     void Rotate(int dir);
 
-    int GetX() const, GetY() const;
+    int GetX() const,
+    GetY() const;
     int GetRotation() const;
 
     PieceTypes::PieceType GetType() const;

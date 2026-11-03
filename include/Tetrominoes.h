@@ -16,7 +16,7 @@ namespace PieceTypes
 //
 // Rotate clockwise:         rotation = (rotation + 1) % 4
 // Rotate counter-clockwise: rotation = (rotation + 3) % 4
-constexpr int PIECES[PIECE_COUNT][4][4][4] = {
+constexpr int PIECES[PieceTypes::PIECE_COUNT][4][4][4] = {
     // I
     {
         {{0,0,0,0},

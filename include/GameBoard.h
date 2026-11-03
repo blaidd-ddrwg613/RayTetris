@@ -6,6 +6,9 @@
 class GameBoard
 {
 public:
+    static constexpr int BOARD_WIDTH = 10;
+    static constexpr int BOARD_HEIGHT = 20;
+
     GameBoard();
 
     void Draw() const;
@@ -16,8 +19,5 @@ public:
     bool Fits(const Tetromino& piece) const;
 
 private:
-    static constexpr int BOARD_WIDTH = 10;
-    static constexpr int BOARD_HEIGHT = 20;
-
     std::array<std::array<int, BOARD_WIDTH>, BOARD_HEIGHT> board {};
 };
