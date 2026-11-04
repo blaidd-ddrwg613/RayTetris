@@ -10,11 +10,11 @@ public:
     void MoveDown();
     void Rotate(int dir);
 
-    int GetX() const,
-    GetY() const;
-    int GetRotation() const;
-
-    PieceTypes::PieceType GetType() const;
+    // Small getters defined in the class are automatically inline.
+    int GetX() const { return x; }
+    int GetY() const { return y; }
+    int GetRotation() const { return rotation; }
+    PieceTypes::PieceType GetType() const { return type; }
 
 private:
     // Top Left Corner of the 4x4 Box on the grid

@@ -12,12 +12,14 @@ namespace PieceTypes
 // PIECES[type][rotation][row][col]
 //  - 4 rotations per piece, in clockwise order (0 -> 1 -> 2 -> 3 -> 0)
 //  - each rotation is a 4x4 grid: 1 = filled cell, 0 = empty
-//  - shapes follow the standard (SRS) layout used by modern Tetris
+//  - T, J, L, O follow the standard (SRS) layout used by modern Tetris
+//  - I, S, Z use classic (NES / Game Boy) style: only two positions, so they
+//    flip in place instead of shifting a row/column on every rotation
 //
 // Rotate clockwise:         rotation = (rotation + 1) % 4
 // Rotate counter-clockwise: rotation = (rotation + 3) % 4
 constexpr int PIECES[PieceTypes::PIECE_COUNT][4][4][4] = {
-    // I
+    // I (classic: rotation 2 = 0, rotation 3 = 1)
     {
         {{0,0,0,0},
          {1,1,1,1},
@@ -30,14 +32,14 @@ constexpr int PIECES[PieceTypes::PIECE_COUNT][4][4][4] = {
          {0,0,1,0}},
 
         {{0,0,0,0},
-         {0,0,0,0},
          {1,1,1,1},
+         {0,0,0,0},
          {0,0,0,0}},
 
-        {{0,1,0,0},
-         {0,1,0,0},
-         {0,1,0,0},
-         {0,1,0,0}},
+        {{0,0,1,0},
+         {0,0,1,0},
+         {0,0,1,0},
+         {0,0,1,0}},
     },
     // O (identical in every rotation)
     {
@@ -83,7 +85,7 @@ constexpr int PIECES[PieceTypes::PIECE_COUNT][4][4][4] = {
          {0,1,0,0},
          {0,0,0,0}},
     },
-    // S
+    // S (classic: rotation 2 = 0, rotation 3 = 1)
     {
         {{0,1,1,0},
          {1,1,0,0},
@@ -95,17 +97,17 @@ constexpr int PIECES[PieceTypes::PIECE_COUNT][4][4][4] = {
          {0,0,1,0},
          {0,0,0,0}},
 
-        {{0,0,0,0},
-         {0,1,1,0},
+        {{0,1,1,0},
          {1,1,0,0},
+         {0,0,0,0},
          {0,0,0,0}},
 
-        {{1,0,0,0},
-         {1,1,0,0},
-         {0,1,0,0},
+        {{0,1,0,0},
+         {0,1,1,0},
+         {0,0,1,0},
          {0,0,0,0}},
     },
-    // Z
+    // Z (classic: rotation 2 = 0, rotation 3 = 1)
     {
         {{1,1,0,0},
          {0,1,1,0},
@@ -117,14 +119,14 @@ constexpr int PIECES[PieceTypes::PIECE_COUNT][4][4][4] = {
          {0,1,0,0},
          {0,0,0,0}},
 
-        {{0,0,0,0},
-         {1,1,0,0},
+        {{1,1,0,0},
          {0,1,1,0},
+         {0,0,0,0},
          {0,0,0,0}},
 
-        {{0,1,0,0},
-         {1,1,0,0},
-         {1,0,0,0},
+        {{0,0,1,0},
+         {0,1,1,0},
+         {0,1,0,0},
          {0,0,0,0}},
     },
     // J
